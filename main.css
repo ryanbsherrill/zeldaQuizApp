@@ -3,4 +3,18 @@ html {
 }
 *, *:before, *:after {
 	box-sizing: inherit;
-}w
+}
+ul {
+	list-style-type: none;
+}
+li {
+	display: block;
+}
+.question-display, .quiz-title , .start-game{
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.hidden {
+	display: none;
+}

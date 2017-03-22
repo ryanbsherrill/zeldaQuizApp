@@ -75,9 +75,21 @@ $(document).ready(function () {
 				console.log(state);
 				$('.start-game').removeClass().addClass('next-question').html('NEXT QUESTION');
 			}
-			$('.next-question').on('click', function () {
+			$('.next-question').on('click', 'li', function () {
 				$('.question-display').empty();
 				$('.question-display').html(makeNewQuestion(getQuestion(stockQuestions)));
+				$('.questionButton').on('click', function () {
+			
+				if ($(this).attr('val') !== $('.hidden').attr('val')) {
+					alert("WRONG!!!");
+				}
+				else {
+					alert("RIGHT!!!");
+					state.correctAnswers ++;
+					console.log(state);
+					$('.start-game').removeClass().addClass('next-question').html('NEXT QUESTION');
+				}
+				});
 			});
 		});
 	});

@@ -1,6 +1,11 @@
+.hidden {
+	display: none;
+}
+
 /* start page */
-/* question section */
-/* score */
+.title-page {
+	margin-top: 200px;
+}
 .start-button {
 	border: 1px solid grey;
 	height: 100px;
@@ -9,29 +14,13 @@
 	background-color: 
 }
 
-.hidden {
-	display: none;
-}
 
-.question-display {
-	
-}
-
-.title-page {
-	margin-top: 200px;
-}
-
-.btn-lg {
-	width: 150px;
-	border: 1px solid grey;
-}
-
+/* question section */
 .question {
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
 .question-number {
 	font-size: 20px;
 	font-weight: bold;
@@ -42,6 +31,11 @@
 	font-style: normal;
 	font-weight: lighter;
 }
+.btn-lg {
+	width: 150px;
+	border: 1px solid grey;
+}
+
 
 .wrong-answer {
 	background-color: red;
@@ -51,6 +45,14 @@
 	margin-top: 200px;
 }
 
+
+/*need to change this to a class*/
+p {
+	margin-top: 12px;
+	margin-bottom: auto;
+}
+
+/* score */
 .glyphicon-heart {
 	font-size: 45px;
 	color: red;
@@ -63,15 +65,10 @@
 	float: right;
 	text-align: right;
 }
-
+/* better name */
 .scoreJawnt {
 	margin-top: 5px;
 	margin-bottom: 0px;
 	font-size: 16px;
 	text-align: center;
-}
-
-p {
-	margin-top: 12px;
-	margin-bottom: auto;
 }

@@ -1,20 +1,77 @@
-html {
-	box-sizing: border-box;
+/* start page */
+/* question section */
+/* score */
+.start-button {
+	border: 1px solid grey;
+	height: 100px;
+	width: 400px;
+	text-align: center;
+	background-color: 
 }
-*, *:before, *:after {
-	box-sizing: inherit;
+
+.hidden {
+	display: none;
 }
-ul {
-	list-style-type: none;
+
+.question-display {
+	
 }
-li {
-	display: block;
+
+.title-page {
+	margin-top: 200px;
 }
-.question-display, .quiz-title , .start-game{
+
+.btn-lg {
+	width: 150px;
+	border: 1px solid grey;
+}
+
+.question {
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
 }
-.hidden {
-	display: none;
+
+.question-number {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+}
+.question-text {
+	font-size: 20px;
+	font-style: normal;
+	font-weight: lighter;
+}
+
+.wrong-answer {
+	background-color: red;
+}
+
+.question-section {
+	margin-top: 200px;
+}
+
+.glyphicon-heart {
+	font-size: 45px;
+	color: red;
+}
+
+.score-div {
+	margin-top: 50px;
+	margin-right: 10px;
+	width: 150px;
+	float: right;
+	text-align: right;
+}
+
+.scoreJawnt {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-size: 16px;
+	text-align: center;
+}
+
+p {
+	margin-top: 12px;
+	margin-bottom: auto;
 }

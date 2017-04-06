@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<meta charset="utf-8">
-	<title>Quiz</title>
+	<title>Zelda Quiz App</title>
 </head>
 <body>
-	<section class="quiz-title">
-		<h3>QUIZ APP</h3>
-		<h1>The Legend of Zelda</h1>
-		<button name="START GAME" class="start-game">START GAME</button>
-	</section>
+	<div class="container">
 
-	<section class="question-display">
-	</section>
-		
+		<section class="title-page text-center">
+			<h3>QUIZ APP</h3>
+			<h1>The Legend of Zelda</h1>
+			<div class="btn text-center start-button">
+				<p>CLICK TO</p>
+				<p>BEGIN YOUR QUEST</p>
+			</div>
+		</section>
+
+		<section class="hidden scoreAndHearts">
+			<div class="score-div block-right">
+				<p class="scoreJawnt">Current Score: 1/5</p>
+				<span class="glyphicon glyphicon-heart"></span>
+				<span class="glyphicon glyphicon-heart"></span>
+				<span class="glyphicon glyphicon-heart"></span>
+			</div>
+		</section>
+
+		<section class="hidden question-section text-center">
+			<div class="question">
+				<h3 class="question-number text-center">Question 1</h3>
+				<h1 class="question-text">How many cups of sugar does it take to get to the moon?</h1>
+			</div>
+
+			<div class="row">
+				<div class="answer-a btn btn-lg">ganon</div>
+				<div class="answer-b btn btn-lg">fight</div>
+			</div>
+			<div class="row">
+				<div class="answer-c btn btn-lg">fly</div>
+				<div class="answer-d btn btn-lg">pan the man</div>
+			</div>
+
+		</section>
+
+	</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
-
 <!--start page html w/ start button
 -->

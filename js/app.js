@@ -112,7 +112,7 @@ $(document).ready(function() {
 	$('.answers').append(makeNewQuestion(getQuestion(stockQuestions)));
 
 	// fade in
-	$('.title-page').slideDown('slow');
+	$('.title-page').slideDown('fast');
 
 
 	// listen for start button click
@@ -184,7 +184,7 @@ $(document).ready(function() {
 				console.log(state);
 			}
 			if (state.questionNumber === state.quizLength) {
-				$('.question-section, .answers, .btn').fadeOut(0);
+				$('.question-section, .answers, .btn, .scoreAndHearts').fadeOut(0);
 				$('.final-score').children('h3').text(("FINAL SCORE: " + state.correctAnswers + "/" + (state.questionNumber)));;
 				$('.final-score, .restart-button').fadeIn('fast');
 			}

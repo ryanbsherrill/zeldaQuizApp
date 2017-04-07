@@ -9,47 +9,60 @@
 <body>
 	<div class="container">
 
+		<!-- TITLE PAGE -->
 		<section class="title-page text-center">
 			<h3>QUIZ APP</h3>
 			<h1>The Legend of Zelda</h1>
 			<div class="btn text-center start-button">
-				<p>CLICK TO</p>
-				<p>BEGIN YOUR QUEST</p>
+				<p>START</p>
+				<p>NEW QUEST</p>
 			</div>
 		</section>
 
+		<!-- SCORE & HEARTS -->
 		<section class="hidden scoreAndHearts">
 			<div class="score-div block-right">
-				<p class="scoreJawnt">Current Score: 1/5</p>
+				<p class="current-score"></p>
 				<span class="glyphicon glyphicon-heart"></span>
 				<span class="glyphicon glyphicon-heart"></span>
 				<span class="glyphicon glyphicon-heart"></span>
 			</div>
 		</section>
 
+		<!-- QUESTION SECTION -->
 		<section class="hidden question-section text-center">
 			<div class="question">
-				<h3 class="question-number text-center">Question 1</h3>
-				<h1 class="question-text">How many cups of sugar does it take to get to the moon?</h1>
+				<h3 class="question-number text-center">Question</h3>
+				<h1 class="question-text"></h1>
 			</div>
 
-			<div class="row">
-				<div class="answer-a btn btn-lg">ganon</div>
-				<div class="answer-b btn btn-lg">fight</div>
+			<div class="answers">
 			</div>
-			<div class="row">
-				<div class="answer-c btn btn-lg">fly</div>
-				<div class="answer-d btn btn-lg">pan the man</div>
+
+			<div class="btn btn-lg next-question">
+				<p>NEXT QUESTION</p>
 			</div>
 
 		</section>
 
+		<!-- FINAL PAGE & SCORE -->
+		<section class="final-score text-center">
+			<h3></h3>
+			<h1>Legendary Status!</h1>
+			<div class="btn text-center restart-button">
+				<p>GAME</p>
+				<p>RESET</p>
+			</div>
+		</section>
+		
 	</div>
 
+<!-- SCRIPTS & CDNs -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+
 <!--start page html w/ start button
 -->

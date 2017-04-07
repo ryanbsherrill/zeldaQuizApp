@@ -2,20 +2,39 @@
 	display: none;
 }
 
-/* start page */
+/* START PAGE*/
 .title-page {
 	margin-top: 200px;
+	display: none;
 }
-.start-button {
+.start-button, .restart-button {
 	border: 1px solid grey;
 	height: 100px;
 	width: 400px;
 	text-align: center;
-	background-color: 
+}
+.start-button > p {
+	font-size: 20px;
+}
+.start-button {
+	background-image: url(https://static.giantbomb.com/uploads/original/11/112562/2381381-hyrule.png);
+	background-size: 100%;
+}
+.restart-button > p {
+	font-size: 20px; 
 }
 
+.restart-button {
+	background-image: url(https://hydra-media.cursecdn.com/zelda.gamepedia.com/thumb/3/39/Triforce_%28Ocarina_of_Time%29.png/300px-Triforce_%28Ocarina_of_Time%29.png?version=5014f54c62a493f115af4637eb8c6991);
+	background-size: 50%;
+}
 
-/* question section */
+/* QUESTION SECTION */
+
+.question-section {
+	margin-top: 200px;
+}
+
 .question {
 	width: 300px;
 	margin-left: auto;
@@ -31,33 +50,60 @@
 	font-style: normal;
 	font-weight: lighter;
 }
+
+.btn {
+	font-size: 12px;
+}
+.btn:hover {
+	font-weight: bold;
+	color: #1c1939;
+	border-color: pink;
+}
 .btn-lg {
 	width: 150px;
 	border: 1px solid grey;
 }
+.next-question {
+	background-image: url(https://static.giantbomb.com/uploads/original/11/112562/2381381-hyrule.png);
+	background-size: 100%;
+	text-align: center;
+	display: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	width: 300px;
+	height: 70px;
+}
 
-
-.wrong-answer {
+.red {
 	background-color: red;
 }
 
-.question-section {
-	margin-top: 200px;
+.yellow {
+	background-color: yellow;
 }
 
+.green {
+	background-color: green;
+}
 
-/*need to change this to a class*/
+/* ANSWERS */
+.answers {
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* change this to a class */
 p {
 	margin-top: 12px;
 	margin-bottom: auto;
 }
 
-/* score */
+/* FINAL PAGE & SCORE */
 .glyphicon-heart {
 	font-size: 45px;
 	color: red;
 }
-
 .score-div {
 	margin-top: 50px;
 	margin-right: 10px;
@@ -65,8 +111,12 @@ p {
 	float: right;
 	text-align: right;
 }
+.final-score {
+	margin-top: 200px;
+	display: none;
+}
 /* better name */
-.scoreJawnt {
+.current-score {
 	margin-top: 5px;
 	margin-bottom: 0px;
 	font-size: 16px;

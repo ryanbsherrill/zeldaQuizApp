@@ -15,3 +15,5 @@
 + potential later functionality -- some type of actual game display -- just link and an enemy -- enemy type will be based on question difficulty -- some kind of animation features where he actually gets hit and can hit while "fighting and enemy" aka answering a question
 
 + open to other ideas to add functionality and features -- just wanted to do something with and for other fans
+
++ awesome

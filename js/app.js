@@ -135,7 +135,7 @@ $(document).ready(function() {
 	if ($(this).hasClass('correct')) {
 		$(this).addClass('green');
 		$('.btn, .question-text').fadeOut(800).delay(800);
-		$('.next-question').fadeIn(1000);
+		$('.next-question').fadeIn('fast');
 
 		// increment state
 		correctAnswer();
@@ -145,7 +145,7 @@ $(document).ready(function() {
 		$(this).addClass('red');
 		$('.correct').addClass('yellow');
 		$('.btn, .question-text').fadeOut(900).delay(800);
-		$('.next-question').fadeIn('slow');
+		$('.next-question').fadeIn('fast');
 
 		// increment state
 		incorrectAnswer();
@@ -169,7 +169,7 @@ $(document).ready(function() {
 			if ($(this).hasClass('correct')) {
 				$(this).addClass('green');
 				$('.btn, .question-text').fadeOut(800).delay(800);
-				$('.next-question').fadeIn(1000);
+				$('.next-question').fadeIn('fast');
 
 				// increment state
 				correctAnswer();
@@ -179,7 +179,7 @@ $(document).ready(function() {
 				$(this).addClass('red');
 				$('.correct').addClass('yellow');
 				$('.btn, .question-text').fadeOut(900).delay(800);
-				$('.next-question').fadeIn('slow');
+				$('.next-question').fadeIn('fast');
 				incorrectAnswer();
 				console.log(state);
 			}

@@ -10,7 +10,7 @@
 .start-button, .restart-button {
 	border: 1px solid grey;
 	height: 100px;
-	width: 400px;
+	width: 350px;
 	text-align: center;
 }
 .start-button > p {
@@ -60,7 +60,7 @@
 	border-color: pink;
 }
 .btn-lg {
-	width: 150px;
+	width: 300px;
 	border: 1px solid grey;
 }
 .next-question {
@@ -89,7 +89,7 @@
 
 /* ANSWERS */
 .answers {
-	max-width: 300px;
+	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -104,6 +104,7 @@ p {
 	font-size: 45px;
 	color: red;
 }
+
 .score-div {
 	margin-top: 50px;
 	margin-right: 10px;

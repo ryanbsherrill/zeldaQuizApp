@@ -25,6 +25,31 @@ var stockQuestions = [
 		a: ["Breath of the Wild", "The Adventure of Link", "Minish Cap", "Unknown"],
 		c: 1,
 	},
+	{
+		q: "Link is",
+		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
+		c: 1,
+	},
+	{
+		q: "Link is",
+		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
+		c: 1,
+	},
+	{
+		q: "Princess Zelda is named after",
+		a: ["Zelda Fitzgerald", "The Creator's Dog", "Zelda Kahan", "Unknown"],
+		c: 0,
+	},
+	{
+		q: "Link is",
+		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
+		c: 1,
+	},
+	{
+		q: "Link's character design is loosely based on",
+		a: ["Unknown", "Davey Crockett", "Peter Pan", "Blasphemy. Link is an original"],
+		c: 2,
+	},
 ];
 
 // STATE OBJECT
@@ -44,19 +69,19 @@ function getQuestion (questionsArray) {
 	var question = questionsArray[state.questionNumber];
 	state.questionNumber ++;
 	return question;
-};
+}
 
 // increment correct answer
 // WORKING
 function correctAnswer () {
 	state.correctAnswers ++;
-};
+}
 
 // increment incorrect answer
 // WORKING
 function incorrectAnswer () {
 	state.incorrectAnswers ++;
-};
+}
 
 
 // DOM MOD FUNCTIONS
@@ -66,9 +91,9 @@ function incorrectAnswer () {
 function makeNewQuestion(getQuestion) {
 
 	// get question stuff
-	var question = getQuestion["q"];
-	var answers = getQuestion["a"];
-	var correct = getQuestion["c"];
+	var question = getQuestion.q;
+	var answers = getQuestion.a;
+	var correct = getQuestion.c;
 	var newQuestion = "";
 
 	// set text
@@ -86,21 +111,44 @@ function makeNewQuestion(getQuestion) {
 		}
 	}
 	return newQuestion;
-};
+}
 
 // EXTRAS
 
-// function to cover up hearts as incorre
-function heartEffect () {
-	// * z-index
-	// * white block
-};
+// remove heart element
+function heartDelete () {
+	$('.heart-container').children().eq(0).delay(2000).queue(function () {
+		$(this).remove();
+	});
+}
+// animate heart loss
+function hitPointReduce () {
+	$('.heart-container').children().eq(0).addClass('animated hinge');
+	heartDelete();
+}
+
+// gain a heart
+function hitPointIncrease () {
+	$('.heart-container').children().last().append('<span class="glyphicon glyphicon-heart"></span>');
+}
 
 // randomize questions function
 function randomQuestion () {
 
-};
+}
 
+// Game Status
+function playerStatus () {
+	if (state.correctAnswers <= 6) {
+		return "n00b adventurer.";
+	}
+	else if (state.correctAnswers <= 8) {
+		return "Hylian Warrior";
+	}
+	else {
+		return "Legendary Hero Status";
+	}
+}
 
 // EVENT LISTENERS
 
@@ -110,6 +158,7 @@ $(document).ready(function() {
 
 	// make a new question
 	$('.answers').append(makeNewQuestion(getQuestion(stockQuestions)));
+
 
 	// fade in
 	$('.title-page').slideDown('fast');
@@ -133,22 +182,30 @@ $(document).ready(function() {
 
 	// correct answer
 	if ($(this).hasClass('correct')) {
+
+		// increment state
+		correctAnswer();
+
+		// show correct answer & load next question
 		$(this).addClass('green');
 		$('.btn, .question-text').fadeOut(800).delay(800);
 		$('.next-question').fadeIn('fast');
 
-		// increment state
-		correctAnswer();
+		
 	}
 	// incorrect answer
 	else {
+		// increment state
+		incorrectAnswer();
+
+		// take away heart
+		hitPointReduce();
+
+		// switch to next question
 		$(this).addClass('red');
 		$('.correct').addClass('yellow');
 		$('.btn, .question-text').fadeOut(900).delay(800);
 		$('.next-question').fadeIn('fast');
-
-		// increment state
-		incorrectAnswer();
 	}
 	});
 	// listen for next question
@@ -167,26 +224,43 @@ $(document).ready(function() {
 
 			//  correct answer
 			if ($(this).hasClass('correct')) {
-				$(this).addClass('green');
-				$('.btn, .question-text').fadeOut(800).delay(800);
-				$('.next-question').fadeIn('fast');
 
 				// increment state
 				correctAnswer();
-				console.log(state);
+
+				// show correct answer and load next question
+				$(this).addClass('green');
+				$('.btn, .question-text').fadeOut(800).delay(800);
+				$('.next-question').fadeIn('fast');
 			}
 			else {
+				// increment state
+				incorrectAnswer();
+
+				// take away heart
+				hitPointReduce();
+
+				
+
+				// switch to next question
 				$(this).addClass('red');
 				$('.correct').addClass('yellow');
 				$('.btn, .question-text').fadeOut(900).delay(800);
 				$('.next-question').fadeIn('fast');
-				incorrectAnswer();
-				console.log(state);
+
+				
 			}
-			if (state.questionNumber === state.quizLength) {
-				$('.question-section, .answers, .btn, .scoreAndHearts').fadeOut(0);
-				$('.final-score').children('h3').text(("FINAL SCORE: " + state.correctAnswers + "/" + (state.questionNumber)));;
-				$('.final-score, .restart-button').fadeIn('fast');
+			if (state.incorrectAnswers === 3) {
+				$('.question-section, .answers, .btn, .scoreAndHearts').fadeOut(1000);
+				$('.final-score').children('h3').text(("YOU LOST ALL YOUR HEARTS"));
+				$('.final-score').children('h1').text(("Try Again?"));
+				$('.final-score, .restart-button').fadeIn(6000);
+			}
+			else if (state.questionNumber === state.quizLength) {
+				$('.question-section, .answers, .btn, .scoreAndHearts').fadeOut(1000);
+				$('.final-score').children('h3').text(("FINAL SCORE: " + state.correctAnswers + "/" + (state.questionNumber)));
+				$('.final-score').children('h1').text((playerStatus()));
+				$('.final-score, .restart-button').fadeIn(5000);
 			}
 		});
 	});

@@ -140,13 +140,13 @@ function randomQuestion () {
 // Game Status
 function playerStatus () {
 	if (state.correctAnswers <= 6) {
-		return "n00b adventurer.";
+		return "n00b Adventurer";
 	}
 	else if (state.correctAnswers <= 8) {
 		return "Hylian Warrior";
 	}
 	else {
-		return "Legendary Hero Status";
+		return "Legendary Hero!";
 	}
 }
 

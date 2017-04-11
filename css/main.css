@@ -10,7 +10,7 @@
 .start-button, .restart-button {
 	border: 1px solid grey;
 	height: 100px;
-	width: 350px;
+	width: 400px;
 	text-align: center;
 }
 .start-button > p {

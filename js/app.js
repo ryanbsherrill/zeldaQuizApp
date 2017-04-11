@@ -26,14 +26,9 @@ var stockQuestions = [
 		c: 1,
 	},
 	{
-		q: "Link is",
-		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
-		c: 1,
-	},
-	{
-		q: "Link is",
-		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
-		c: 1,
+		q: "'Link's Awakening' was inspired by",
+		a: ["Akira", "Jurassic Park", "Mario Brothers", "Twin Peaks"],
+		c: 4,
 	},
 	{
 		q: "Princess Zelda is named after",
@@ -42,8 +37,13 @@ var stockQuestions = [
 	},
 	{
 		q: "Link is",
-		a: ["Right-Handed", "Left-Handed", "Unknown", "Ambidextrous"],
+		a: ["Right-Handed", "Trick Question", "Left-Handed", "Ambidextrous"],
 		c: 1,
+	},
+	{
+		q: "The World Record for Beating 'The Legend of Zelda is'",
+		a: ["14 Minutes", "6 Hours", "28 minutes", "12 Hours"],
+		c: 2,
 	},
 	{
 		q: "Link's character design is loosely based on",

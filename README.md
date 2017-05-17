@@ -1,1 +1,1 @@
-# quiz app for Zelda fans
+# Quiz app for Zelda fans

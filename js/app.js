@@ -1,4 +1,3 @@
-// QUESTIONS ARRAY
 var stockQuestions = [
 	{
 		q: "Where was Link born?",
@@ -52,7 +51,6 @@ var stockQuestions = [
 	},
 ];
 
-// STATE OBJECT
 var state = {
 	questionNumber: 0,
 	correctAnswers: 0,
@@ -60,195 +58,118 @@ var state = {
 	quizLength: stockQuestions.length,
 };
 
-
-// STATE MOD FUNCTIONS
-
-// pull question from array & increment question number in state obj
-// WORKING
 function getQuestion (questionsArray) {
 	var question = questionsArray[state.questionNumber];
 	state.questionNumber ++;
 	return question;
 }
 
-// increment correct answer
-// WORKING
 function correctAnswer () {
 	state.correctAnswers ++;
 }
 
-// increment incorrect answer
-// WORKING
 function incorrectAnswer () {
 	state.incorrectAnswers ++;
 }
 
-
-// DOM MOD FUNCTIONS
-
-// new question
-// WORKING
 function makeNewQuestion(getQuestion) {
-
-	// get question stuff
 	var question = getQuestion.q;
 	var answers = getQuestion.a;
 	var correct = getQuestion.c;
 	var newQuestion = "";
 
-	// set text
 	$('.question-text').text(question);
 	$('.question-number').text("Question "+state.questionNumber);
 	$('.current-score').text("Current Score: " + state.correctAnswers + "/" + (state.questionNumber - 1));
 	
-	// create HTML
 	for (var i = 0; i < answers.length; i++) {
 		if (i === correct) {
 			newQuestion += '<div class="correct js-btn btn btn-lg">'+answers[i]+'</div>';
-		}
-		else {
+		} else {
 			newQuestion += '<div class="js-btn btn btn-lg">'+answers[i]+'</div>';
 		}
 	}
 	return newQuestion;
 }
 
-// EXTRAS
-
-// remove heart element
 function heartDelete () {
 	$('.heart-container').children().eq(0).delay(2000).queue(function () {
 		$(this).remove();
 	});
 }
-// animate heart loss
+
 function hitPointReduce () {
 	$('.heart-container').children().eq(0).addClass('animated hinge');
 	heartDelete();
 }
 
-// gain a heart
 function hitPointIncrease () {
 	$('.heart-container').children().last().append('<span class="glyphicon glyphicon-heart"></span>');
 }
 
-// randomize questions function
 function randomQuestion () {
 
 }
 
-// Game Status
 function playerStatus () {
 	if (state.correctAnswers <= 6) {
 		return "n00b Adventurer";
 	}
 	else if (state.correctAnswers <= 8) {
 		return "Hylian Warrior";
-	}
-	else {
+	} else {
 		return "Legendary Hero!";
 	}
 }
 
-// EVENT LISTENERS
-
-// listen for start-game button => hide title page
-// WORKING
 $(document).ready(function() {
-
-	// make a new question
 	$('.answers').append(makeNewQuestion(getQuestion(stockQuestions)));
-
-
-	// fade in
 	$('.title-page').slideDown('fast');
-
-
-	// listen for start button click
 	$('.start-button').on('click', function(e) {
 		e.preventDefault();
-
-		// hide title
-		$('.title-page').addClass('hidden');
 		
-		// add score and question to page
+		$('.title-page').addClass('hidden');
 		$('.scoreAndHearts').removeClass('hidden');
 		$('.question-section').removeClass('hidden');
 	});
-
-	// listen for click on answer buttons
+	
 	$('.js-btn').on('click', function (e) {
 	e.preventDefault();
 
-	// correct answer
 	if ($(this).hasClass('correct')) {
-
-		// increment state
 		correctAnswer();
-
-		// show correct answer & load next question
 		$(this).addClass('green');
 		$('.btn, .question-text').fadeOut(800).delay(800);
 		$('.next-question').fadeIn('fast');
-
-		
-	}
-	// incorrect answer
-	else {
-		// increment state
+	} else {
 		incorrectAnswer();
-
-		// take away heart
 		hitPointReduce();
-
-		// switch to next question
 		$(this).addClass('red');
 		$('.correct').addClass('yellow');
 		$('.btn, .question-text').fadeOut(900).delay(800);
 		$('.next-question').fadeIn('fast');
 	}
 	});
-	// listen for next question
-	// WORKING
 	$('.next-question').on('click', function(e) {
 		e.preventDefault();
 		$(this).fadeOut(0);
-
-		// make a new question
 		$('.answers').append(makeNewQuestion(getQuestion(stockQuestions)));
 		$('.question-text').fadeIn('slow');
-
-		// listen for click on answer buttons
 		$('.js-btn').on('click', function (e) {
 		e.preventDefault();
-
-			//  correct answer
+			
 			if ($(this).hasClass('correct')) {
-
-				// increment state
 				correctAnswer();
-
-				// show correct answer and load next question
 				$(this).addClass('green');
 				$('.btn, .question-text').fadeOut(800).delay(800);
 				$('.next-question').fadeIn('fast');
-			}
-			else {
-				// increment state
+			} else {
 				incorrectAnswer();
-
-				// take away heart
 				hitPointReduce();
-
-				
-
-				// switch to next question
 				$(this).addClass('red');
 				$('.correct').addClass('yellow');
 				$('.btn, .question-text').fadeOut(900).delay(800);
 				$('.next-question').fadeIn('fast');
-
-				
 			}
 			if (state.incorrectAnswers === 3) {
 				$('.question-section, .answers, .btn, .scoreAndHearts').fadeOut(1000);
